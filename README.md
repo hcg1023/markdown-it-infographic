@@ -17,7 +17,7 @@ md.use(infographic)
 ```
 
 Input:
-```markdown
+````markdown
 ```infographic
 infographic list-row-simple-horizontal-arrow
 data
@@ -29,7 +29,7 @@ data
     - label 步骤 3
       desc 完成
 ```
-```
+````
 
 Output:
 ```html
