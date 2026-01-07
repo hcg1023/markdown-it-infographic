@@ -1,36 +1,10 @@
 name: pnpm quality
 
 on:
-  workflow_call:
-    inputs:
-      node-version:
-        description: 'Node.js version to use'
-        required: false
-        type: string
-        default: '22'
-      pnpm-version:
-        description: 'pnpm version to use'
-        required: false
-        type: string
-        default: '8'
-
-      test:
-        description: 'Run tests'
-        required: false
-        type: boolean
-        default: true
-
-      typecheck:
-        description: 'Run type check'
-        required: false
-        type: boolean
-        default: true
-
-      lint:
-        description: 'Run lint'
-        required: false
-        type: boolean
-        default: true
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
 
 jobs:
   quality:
@@ -45,12 +19,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: ${{ inputs.node-version }}
+          node-version: 20
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: ${{ inputs.pnpm-version }}
+          version: 9
 
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -70,9 +44,7 @@ jobs:
         run: pnpm install
 
       - name: Type check
-        if: ${{ inputs.typecheck }}
         run: pnpm build --if-present
 
       - name: Run tests
-        if: ${{ inputs.test }}
         run: pnpm test
