@@ -1,0 +1,64 @@
+{
+  "name": "markdown-it-plugin-template",
+  "version": "1.0.0",
+  "description": "A template for markdown-it plugins",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "default": "./dist/esm/index.js"
+    },
+    "./*": {
+      "types": "./dist/types/*.d.ts",
+      "require": "./dist/cjs/*.js",
+      "import": "./dist/esm/*.js",
+      "default": "./dist/esm/*.js"
+    }
+  },
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "scripts": {
+    "dev": "vitest",
+    "build": "tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.types.json && node after-build.js",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bioruebe/markdown-it-plugin-template"
+  },
+  "author": "bioruebe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bioruebe/markdown-it-plugin-template/issues"
+  },
+  "homepage": "https://github.com/bioruebe/markdown-it-plugin-template",
+  "keywords": [
+    "markdown",
+    "markdown-it",
+    "markdown-it-plugin"
+  ],
+  "files": [
+    "dist",
+    "docs",
+    "!**/*.spec.*",
+    "!test",
+    "LICENSE",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@types/js-beautify": "^1.14.3",
+    "@types/markdown-it": "latest",
+    "js-beautify": "^1.15.1",
+    "markdown-it": "latest",
+    "typescript": "^5.0.3",
+    "vite": "^5.1.6",
+    "vite-plugin-dts": "^4.2.2",
+    "vitest": "^2.1.1"
+  },
+  "peerDependencies": {
+    "markdown-it": ">=5"
+  }
+}
