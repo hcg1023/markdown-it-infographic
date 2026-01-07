@@ -1,7 +1,7 @@
 {
-  "name": "markdown-it-plugin-template",
+  "name": "markdown-it-infographic",
   "version": "1.0.0",
-  "description": "A template for markdown-it plugins",
+  "description": "markdown-it plugin for @antv/Infographic",
   "type": "module",
   "exports": {
     ".": {
@@ -27,18 +27,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bioruebe/markdown-it-plugin-template"
+    "url": "https://github.com/hcg1023/markdown-it-infographic"
   },
-  "author": "bioruebe",
+  "author": "hcg1023",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bioruebe/markdown-it-plugin-template/issues"
+    "url": "https://github.com/hcg1023/markdown-it-infographic/issues"
   },
-  "homepage": "https://github.com/bioruebe/markdown-it-plugin-template",
+  "homepage": "https://github.com/hcg1023/markdown-it-infographic",
   "keywords": [
     "markdown",
     "markdown-it",
-    "markdown-it-plugin"
+    "markdown-it-plugin",
+    "@antv/infographic"
   ],
   "files": [
     "dist",
@@ -49,9 +50,13 @@
     "README.md"
   ],
   "devDependencies": {
+    "@antv/infographic": "^0.2.6",
     "@types/js-beautify": "^1.14.3",
     "@types/markdown-it": "latest",
+    "eventemitter3": "^5.0.1",
+    "happy-dom": "^20.0.11",
     "js-beautify": "^1.15.1",
+    "jsdom": "^27.4.0",
     "markdown-it": "latest",
     "typescript": "^5.0.3",
     "vite": "^5.1.6",
@@ -59,6 +64,6 @@
     "vitest": "^2.1.1"
   },
   "peerDependencies": {
-    "markdown-it": ">=5"
+    "@antv/infographic": ">=0.2"
   }
 }

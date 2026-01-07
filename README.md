@@ -1,32 +1,40 @@
-# markdown-it-plugin-template
+# markdown-it-infographic
 
-This repository provides a template for creating plugins for [markdown-it](https://github.com/markdown-it/markdown-it), a popular Markdown parser for JavaScript.
+## Install
+```bash
+npm install @antv/infographic markdown-it-infographic
+```
 
-## Features
+## Usage
+```ts
+const md = require('markdown-it')()
+const infographic = require('markdown-it-infographic')
 
-- Standardized project structure
-- Vite and Typescript
-- Automatic test case generation based on input (`.md`)  and output (`.html`) files
-- Fast testing via Vitest, allowing test-first development and quick iterations
+md.use(infographic)
+// md.use(infographic, {
+//  padding: 4
+// })
+```
 
-## Getting Started
+Input:
+```markdown
+```infographic
+infographic list-row-simple-horizontal-arrow
+data
+  items
+    - label 步骤 1
+      desc 开始
+    - label 步骤 2
+      desc 进行中
+    - label 步骤 3
+      desc 完成
+```
+```
 
-To create a new markdown-it plugin using this template, simply click the button `Use this template` above.
+Output:
+```html
+<div data-infographic="true"><svg>...</svg></div>
+```
 
-## Project structure
-
-- `src/index.ts` is the plugin entry point
-- `docs` may be used for additional documentation files, such as a preview image
-- `test` contains the fixtures used to test the plugin
-
-### Automatic testing
-
-This template uses file-based test definitions (fixtures). For each test, you create an input markdown file and the corresponding HTML output. Both files must have the same name, which is then used as the name of the test case. Folders can be used to create test suites, e.g. `test/invalid-syntax` containing different cases of wrong usage of the plugin.
-
-## Developing Your Plugin
-
-1. Install the required dependencies by running `npm install`.
-2. Specify the desired input/output by creating Markdown and HTML files inside the `/test` directory. Use sub-directories to group them.
-3. Start vitest watch mode: `npm run dev`
-4. Customize the file `src/index.ts` to provide the functionality you need.
-5. Build the plugin: `npm run build`
+## Options
+[Infographic](https://github.com/antvis/infographic) options.
